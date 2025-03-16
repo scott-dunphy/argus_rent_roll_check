@@ -5,7 +5,7 @@ import tempfile
 from utils import main as process_rent_rolls
 
 # Set page configuration
-st.set_page_config(page_title="Rent Roll Comparison Tool", layout="wide")
+st.set_page_config(page_title="Compare Actual Rent Roll to Argus Rent Roll", layout="wide")
 
 # Function to run async functions in Streamlit
 def async_to_sync(async_func):
