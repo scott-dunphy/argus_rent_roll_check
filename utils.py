@@ -282,15 +282,13 @@ analysis_agent = Agent(
 )
 
 # Main Orchestration
-async def main():
-    rent_roll_pdf_path = "/Users/scottdunphy/Documents/Rent Rolls/Fake Office Rent Roll.pdf"
-    argus_pdf_path = "/Users/scottdunphy/Downloads/Fake Office Building_Tenant Rent Roll_20250314_181342-2.pdf"
+async def main(actual_rent_roll_path, argus_rent_roll_path):
     if not os.path.exists(rent_roll_pdf_path):
         print(f"Error: Rent roll file not found at: {rent_roll_pdf_path}")
         return
     output = await Runner.run(
         analysis_agent,
-        f"Process rent rolls. Actual Rent Roll {rent_roll_pdf_path}"
+        f"Process rent rolls. Actual Rent Roll {actual_rent_roll_path}"
                 f"Argus Rent Roll {argus_pdf_path} "
                 "First pass the actual rent roll pdf path to the rent roll extraction tool."
                 "Second, pass the argus rent roll pdf path to the argus extraction tool."
