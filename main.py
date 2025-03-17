@@ -39,7 +39,7 @@ async def run_analysis(actual_rent_roll_path, argus_rent_roll_path):
     return output.final_output
 
 # UI for the Streamlit app
-st.title("Rent Roll Comparison Tool")
+st.title("Compare Actual Rent Roll to Argus Rent Roll")
 
 st.markdown("""
 This application compares an actual rent roll with an Argus (underwriting) rent roll to identify discrepancies.
@@ -96,32 +96,5 @@ if actual_rent_roll and argus_rent_roll:
 else:
     st.info("Please upload both PDF files to continue.")
 
-# Information about the tool
-with st.expander("About this tool"):
-    st.markdown("""
-    This tool compares actual rent roll data with Argus (underwriting) rent roll data to identify discrepancies.
-    
-    The analysis compares:
-    - Unit numbers and occupant names
-    - Monthly rent amounts
-    - Square footage
-    - Lease expiration dates
-    
-    The tool uses the Mistral API for OCR and data extraction from the PDF files.
-    API credentials are stored securely in Streamlit secrets.
-    """)
 
-# Add section about setting up secrets
-with st.expander("Setup Instructions"):
-    st.markdown("""
-    ### Setting up Streamlit Secrets
-    
-    1. Create a file named `.streamlit/secrets.toml` in your project directory
-    2. Add your Mistral API key in this format:
-       ```
-       MISTRAL_API_KEY = "your-api-key-here"
-       ```
-    3. Make sure the `.streamlit` directory is in your .gitignore file to avoid exposing your API key
-    
-    For more information on Streamlit secrets management, visit [Streamlit's documentation](https://docs.streamlit.io/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
-    """)
+
