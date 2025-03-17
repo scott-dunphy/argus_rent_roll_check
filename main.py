@@ -55,6 +55,14 @@ except Exception:
     st.warning("⚠️ Mistral API key not found in secrets. Please add it to your .streamlit/secrets.toml file.")
     st.info("Format in secrets.toml: MISTRAL_API_KEY = 'your-api-key-here'")
 
+try:
+    # Set API key from secrets to environment variable
+    os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
+    st.success("✅ OpenAI API key loaded from secrets!")
+except Exception:
+    st.warning("⚠️ Mistral API key not found in secrets. Please add it to your .streamlit/secrets.toml file.")
+    st.info("Format in secrets.toml: MISTRAL_API_KEY = 'your-api-key-here'")
+
 # File upload section
 st.header("Upload Rent Roll Files")
 
